@@ -1,6 +1,6 @@
 ========== BEGIN HEADER ============================
-Intent:  CAT Project Template for git.
-Goal: git template on github and in my own repo.
+Intent:  CAT JavaScript Canvas Tutorial.
+Goal: Demonstrate HTML5 Canvas functions.
 DateStarted: 2012.03.21 <Working on canvas stuff so wanted to capture my canvas tutorials>
 DateCreated: 2012.03.21 <This was started when I created the repo on hostgator to pull git source from>
 Resources:
@@ -19,193 +19,50 @@ WEBEDIR: http://catmac.local/~cat/cataprojecttemplate/READMECAT.php
 TESTING DOCS: NONE
 ======================================================================================
 <<<<<<<<<<<<<<<<<
->>>>>STEP 1 - Setup github.com git REPO
+>>>>>STEP 1 - Clone template and RENAME to new project.
 <<<<<<<<<<<<<<<<<
---Since the template is intended for public consumption make origin on github.com
+--NOW... we use this template to create a new project... we will create the project catjscanvas as the example.
+--The Steps are:
+--1 - Create the public site URL
+--2 - Clone template into the working site
+--3 - Create the blank repo <I'll use github as catjscanvas can be a public project it's just me learning canvas and kineticjs>
+--4 - WORK...
+--NOW... go do it
+--Public site URL will be http://catjstuts.cat9.com/catjscanvas
+--github.com repo will be https://github.com/christrees/catjscanvas
+--ON GITHUB
 https://github.com/christrees
 https://github.com/repositories/new
-ProjectName: cataprojecttemplate
-Description: CAT9 project template
-HomePageURL: http://cattemplates.cat9.com/cataprojecttemplate/test.html
-Global setup:
- Set up git
-  git config --global user.name "Your Name"
-  git config --global user.email christrees@yahoo.com
-Next steps:
-  mkdir cataprojecttemplate
-  cd cataprojecttemplate
-  git init
-  touch README
-  git add README
-  git commit -m 'first commit'
-  git remote add origin git@github.com:christrees/cataprojecttemplate.git
-  git push -u origin master
-Existing Git Repo?
-  cd existing_git_repo
-  git remote add origin git@github.com:christrees/cataprojecttemplate.git
-  git push -u origin master
-Importing a Subversion Repo?
-  Click here
-When you're done:
-  Continue
-<<<<<<<<<<<<<<<<<
->>>>>STEP 2 - Setup LOCAL git REPO
-<<<<<<<<<<<<<<<<<
---Well... I started these notes when I am about to create the canvas elements.
---I am using catrp project as the base template and cleaning things up as I go
---We want cat9 -> conCATenation 3x3 triangles
---3 places: local working - cat9.com - github.com
---3 people: me local - me cat9.com - me github.com <yea I'm cheating but it's a template>
---The cat9.com repo is abit redundant as I'll have a working copy out in public at
---HomePageURL: http://cattemplates.cat9.com/cataprojecttemplate/test.html
---BUT this template is for private repos also so putting the private repo pattern also.
---Now setup the local working repo and push to both github.com and cat9.com
---CAT-Local
+ProjectName: catjscanvas
+Description: CAT9 javascript canvas tutorial demos
+HomePageURL: http://catjstuts.cat9.com/catjscanvas/index.html
+--ON CATMAC
 catmac:Sites cat$ pwd
 /Users/cat/Sites
-catmac:Sites cat$ mkdir cataprojecttemplate
-catmac:Sites cat$ cp catrp/README cataprojecttemplate/
-catmac:Sites cat$ cp catrp/READMECAT.php cataprojecttemplate/
-catmac:Sites cat$ cp catrp/.gitignore cataprojecttemplate/
-catmac:Sites cat$ cp catrp/READMEIGNORE.php cataprojecttemplate/
---Put in this README
---Put in the webedit for the README <READMECAT.php>
---Put in my .gitnore
---Put in the webedit for .gitignore <READMEIGNORE.php>
---Clean up this README
-catmac:Sites cat$ cd cataprojecttemplate/
-catmac:cataprojecttemplate cat$ git init
-Initialized empty Git repository in /Users/cat/Sites/cataprojecttemplate/.git/
-catmac:cataprojecttemplate cat$ git add .
-catmac:cataprojecttemplate cat$ git commit -m "init cataprojecttemplate"
-[master (root-commit) d883013] init cataprojecttemplate
- Committer: Chris Trees <cat@catmac.local>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly:
-
-    git config --global user.name "Your Name"
-    git config --global user.email you@example.com
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 4 files changed, 278 insertions(+), 0 deletions(-)
- create mode 100644 .gitignore
- create mode 100755 README
-catmac:cataprojecttemplate cat$ git remote add origin git@github.com:christrees/cataprojecttemplate.git
-catmac:cataprojecttemplate cat$ git push -u origin master
-Identity added: /Users/cat/.ssh/id_rsa (/Users/cat/.ssh/id_rsa)
-ERROR: Hi christrees, it's GitHub. We're doing an SSH key audit.
-Please visit https://github.com/settings/ssh/audit/1907166
-to approve this key so we know it's safe.
-Fingerprint: be:e9:ef:3d:88:fe:d6:5b:b3:15:b0:f8:45:14:b3:b6
-fatal: The remote end hung up unexpectedly
-catmac:cataprojecttemplate cat$ git push -u origin master
-Counting objects: 6, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 3.96 KiB, done.
-Total 6 (delta 1), reused 0 (delta 0)
-To git@github.com:christrees/cataprojecttemplate.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin.
-catmac:cataprojecttemplate cat$ 
---NOTE: I had to go accept my catmac key on github not normally required.
---BUT it's up on github
---https://github.com/christrees/cataprojecttemplate
-<<<<<<<<<<<<<<<<<
->>>>>STEP 3 - Setup cat9.com git REPO
-<<<<<<<<<<<<<<<<<
---I forgot to setup the test.html file so I'll do that now...
---http://catmac.local/~cat/cataprojecttemplate/READMECAT.php
-catmac:cataprojecttemplate cat$ pwd
-/Users/cat/Sites/cataprojecttemplate
-catmac:cataprojecttemplate cat$ ls -alu
-total 48
-drwxr-xr-x   8 cat  staff   272 Mar 21 12:29 .
-drwxr-xr-x+ 22 cat  staff   748 Mar 21 12:07 ..
-drwxr-xr-x  13 cat  staff   442 Mar 21 12:12 .git
--rw-r--r--   1 cat  staff   509 Mar 21 12:08 .gitignore
--rwxr-xr-x   1 cat  staff  9455 Mar 21 12:13 README
--rw-r--r--   1 cat  staff   457 Mar 21 12:08 READMECAT.php
--rw-r--r--   1 cat  staff   461 Mar 21 12:08 READMEIGNORE.php
-drwxr-xr-x   5 cat  staff   170 Mar 21 10:55 nbproject
-catmac:cataprojecttemplate cat$ vi test.html
-catmac:cataprojecttemplate cat$ 
---WOOPS.... can't write..
-catmac:cataprojecttemplate cat$ chmod 666 README
---Now try to save again
---THAT WORKS...
---Create repo on hostgator
-[cat@gator1209 ~]$ cd repo/
-[cat@gator1209 ~/repo]$ ls
-catrp.git  wizzform.git
-[cat@gator1209 ~/repo]$ mkdir cataprojecttemplate.git
-[cat@gator1209 ~/repo]$ cd cataprojecttemplate.git/
-[cat@gator1209 ~/repo/cataprojecttemplate.git]$ git --bare init
-Initialized empty Git repository in /home/cat/repo/cataprojecttemplate.git/
-[cat@gator1209 ~/repo/cataprojecttemplate.git]$ 
---Now SETUP REMOTE  PRIVATE REPO pointer from working location
-catmac:cataprojecttemplate cat$ git remote add private cat@cat9.com:repo/cataprojecttemplate.git
---SAVE THIS README 
-catmac:cataprojecttemplate cat$ git add .
-catmac:cataprojecttemplate cat$ git commit -m "Pushing private repo"
-catmac:cataprojecttemplate cat$ git push private master
-Counting objects: 6, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 3.96 KiB, done.
-Total 6 (delta 1), reused 0 (delta 0)
-To cat@cat9.com:repo/cataprojecttemplate.git
- * [new branch]      master -> master
-catmac:cataprojecttemplate cat$ 
---OK now lets just pull from the repo from cat9.com and put it up to public
---NOTE we could also pull from github and we should attempt that also.
---NOTE we also have to setup cattemplates.cat9.com sub
---THEN we can do the following local clone
-[cat@gator1209 ~/repo/cataprojecttemplate.git]$ cd ~/public_html/cat
-catform/      catfrombuild/ cattemplates/ 
-[cat@gator1209 ~/repo/cataprojecttemplate.git]$ cd ~/public_html/cattemplates/
-[cat@gator1209 ~/public_html/cattemplates]$ git clone /home/cat/repo/cataprojecttemplate.git/
-Initialized empty Git repository in /home/cat/public_html/cattemplates/cataprojecttemplate/.git/
-[cat@gator1209 ~/public_html/cattemplates]$ ls
-cataprojecttemplate  cgi-bin
-[cat@gator1209 ~/public_html/cattemplates]$ 
---See if it's out there http://cattemplates.cat9.com/cataprojecttemplate/test.html
---CRAP... no test.html
---BUT http://cattemplates.cat9.com/cataprojecttemplate/ has the README... so I'm just out of sync...
-...YUP... we've got the path now...
---SAVE this and push to github
-catmac:cataprojecttemplate cat$ git add .
-catmac:cataprojecttemplate cat$ git commit -m "Setting up test.html and push the master branch to both <origin> github.com and <private> cat9.com repos"
-catmac:cataprojecttemplate cat$ git push origin master
-catmac:cataprojecttemplate cat$ git push private master
---Nuke and pull from github
-[cat@gator1209 ~/public_html/cattemplates]$ rm -rf cataprojecttemplate/
-[cat@gator1209 ~/public_html/cattemplates]$ git clone git@github.com:christrees/cataprojecttemplate.git
---See if it's out there http://cattemplates.cat9.com/cataprojecttemplate/test.html
---YUP... THAT WORKS
-<<<<<<<<<<<<<<<<<
->>>>>STEP 1, 2, 3 - TEST
-<<<<<<<<<<<<<<<<<
-Probably the best test is to do a 3 point sync and verify the 2 websites.  The way that works in this case is:
-1 - Modify local file <copy 1> http://catmac.local/~cat/cataprojecttemplate/README
-2 - commit in local file <copy 2>
-3 - push commit to remote repo <copy 3>
-4 - Pull from remote repo a to an alternate site < http://cattemplates.cat9.com/cataprojecttemplate/README >
-5 - Verify your mod / change is reflected.
-SUCCESS>> WE ARE GOOD
+catmac:Sites cat$ git clone git@github.com:christrees/cataprojecttemplate catjscanvas
+Cloning into 'catjscanvas'...
+remote: Counting objects: 13, done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 13 (delta 4), reused 12 (delta 3)
+Receiving objects: 100% (13/13), 6.85 KiB, done.
+Resolving deltas: 100% (4/4), done.
+catmac:catjscanvas cat$ git remote rm origin
+catmac:catjscanvas cat$ git remote rm private
+error: Could not remove config section 'remote.private'
+--NOTE: github does not have the private... that's in the working git dir
+catmac:catjscanvas cat$ git remote add origin git@github.com:christrees/catjscanvas.git
+--NOW edit this README
+--http://catmac.local/~cat/catjscanvas/READMECAT.php
 
 --<<<<<<<<<<<<<<<<<<<<
 -->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
 -->>>>>>>>>>>>>>>>>>>>
 
-catmac:cataprojecttemplate cat$ git add .
-catmac:cataprojecttemplate cat$ git commit -m "Release 1 PUSH to both <origin> github.com and <private> cat9.com repos"
-catmac:cataprojecttemplate cat$ git push origin master
-catmac:cataprojecttemplate cat$ git push private master
+catmac:catjscanvas cat$ chmod 666 README
+--click button <SaveCAT> on http://catmac.local/~cat/catjscanvas/READMECAT.php
+catmac:catjscanvas cat$ git add .
+catmac:catjscanvas cat$ git commit -m "First Commit of catjscanvas"
+catmac:catjscanvas cat$ git push origin master
 
 ======= END =============
 ------- copy buffer --------------
@@ -217,24 +74,18 @@ catmac:cataprojecttemplate cat$ git push private master
 --Lets commit this
 --SAVE THIS README
 --SAVE this and push to github
-catmac:cataprojecttemplate cat$ git add .
-catmac:cataprojecttemplate cat$ git commit -m "blahblahtemplatestuff"
-catmac:cataprojecttemplate cat$ git push origin master
-catmac:cataprojecttemplate cat$ git push private master
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git fetch
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git reset --hard HEAD
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git merge origin/master
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git checkout remotes/origin/<whatever branch>
-OR
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git fetch
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git reset --hard HEAD
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git merge private/master
-[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git checkout remotes/private/<whatever branch>
+catmac:catjscanvas cat$ git add .
+catmac:catjscanvas cat$ git commit -m "blahblahtemplatestuff"
+catmac:catjscanvas cat$ git push origin master
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git fetch
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git reset --hard HEAD
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git merge origin/master
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git checkout remotes/origin/<whatever branch>
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST
 <<<<<<<<<<<<<<<<<
-Browse - http://catmac.local/~cat/cataprojecttemplate/demo5.html
-Browse - http://cattemplates.cat9.com/cataprojecttemplate/demo5.html
+Browse - http://catmac.local/~cat/catjscanvas/test.html
+Browse - http://catjstuts.cat9.com/catjscanvas/test.html
 SUCCESS>>
 ?FAILURE>>
 ??WHAT?>>
