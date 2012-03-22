@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>demo01 catjscanvas</title>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                //stroke a line http://www.html5canvastutorials.com/tutorials/html5-canvas-line-color/
+                context.moveTo(100, 150);
+                context.lineTo(450, 50);
+                context.lineWidth = 5;
+                context.strokeStyle = "#ff0000"; // line color
+                context.stroke();               
+    // butt line cap (top line) http://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/
+    context.beginPath();
+    context.moveTo(200, canvas.height / 2 - 50);
+    context.lineTo(canvas.width - 200, canvas.height / 2 - 50);
+    context.lineWidth = 20;
+    context.strokeStyle = "#0000ff"; // line color
+    context.lineCap = "butt";
+    context.stroke();
+    // round line cap (middle line)
+    context.beginPath();
+    context.moveTo(200, canvas.height / 2);
+    context.lineTo(canvas.width - 200, canvas.height / 2);
+    context.lineWidth = 20;
+    context.strokeStyle = "#0000ff"; // line color
+    context.lineCap = "round";
+    context.stroke();
+    // square line cap (bottom line)
+    context.beginPath();
+    context.moveTo(200, canvas.height / 2 + 50);
+    context.lineTo(canvas.width - 200, canvas.height / 2 + 50);
+    context.lineWidth = 20;
+    context.strokeStyle = "#0000ff"; // line color
+    context.lineCap = "square";
+    context.stroke();
+    //Arch http://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+    var radius = 75;
+    var startingAngle = 1.1 * Math.PI;
+    var endingAngle = 1.9 * Math.PI;
+    var counterclockwise = false;
+    context.beginPath();
+    context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
+    context.lineWidth = 15;
+    context.strokeStyle = "black"; // line color
+    context.stroke();
+    //Quadratic http://www.html5canvastutorials.com/tutorials/html5-canvas-quadratic-curves/
+    var controlX = 288;
+    var controlY = 0;
+    var endX = 388;
+    var endY = 150;
+    context.beginPath();
+    context.moveTo(188, 150);
+    context.quadraticCurveTo(controlX, controlY, endX, endY);
+    context.lineWidth = 10;
+    context.strokeStyle = "black"; // line color
+    context.stroke();
+    //Bezier Curve http://www.html5canvastutorials.com/tutorials/html5-canvas-bezier-curves/
+    var controlX1 = 140;
+    var controlY1 = 10;
+    var controlX2 = 388;
+    var controlY2 = 10;
+    var endX = 388;
+    var endY = 170;
+    context.beginPath();
+    context.moveTo(188, 130);
+    context.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY);
+    context.lineWidth = 10;
+    context.strokeStyle = "green"; // line color
+    context.stroke();
+    //Canvas Path http://www.html5canvastutorials.com/tutorials/html5-canvas-paths/
+    context.beginPath();
+    context.moveTo(100, 20);
+    context.lineTo(200, 160); // line 1
+    context.quadraticCurveTo(230, 200, 250, 120); // quadratic curve
+    context.bezierCurveTo(290, -40, 300, 200, 400, 150); // bezier curve
+    context.lineTo(500, 90); // line 2
+    context.lineWidth = 5;
+    context.strokeStyle = "yellow";
+    context.stroke();
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="578" height="200">
+        </canvas>
+    </body>
+</html>

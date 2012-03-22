@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>demo03 catjscanvas</title>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+    //Custom Shape - http://www.html5canvastutorials.com/tutorials/html5-canvas-shape-fill/
+    context.beginPath(); // begin custom shape
+    context.moveTo(170, 80);
+    context.bezierCurveTo(130, 100, 130, 150, 230, 150);
+    context.bezierCurveTo(250, 180, 320, 180, 340, 150);
+    context.bezierCurveTo(420, 150, 420, 120, 390, 100);
+    context.bezierCurveTo(430, 40, 370, 30, 340, 50);
+    context.bezierCurveTo(320, 5, 250, 20, 250, 50);
+    context.bezierCurveTo(200, 5, 150, 20, 170, 80);
+    context.closePath(); // complete custom shape
+    context.fillStyle = "#8ED6FF";
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = "#0000ff";
+    context.stroke();
+    //Rectangle - http://www.html5canvastutorials.com/tutorials/html5-canvas-rectangles/
+    var topLeftCornerX = 188;
+    var topLeftCornerY = 50;
+    var width = 200;
+    var height = 100;
+    context.beginPath();
+    context.rect(topLeftCornerX, topLeftCornerY, width, height);
+    context.fillStyle = "#000ff0";
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = "black";
+    context.stroke();
+    //Circle http://www.html5canvastutorials.com/tutorials/html5-canvas-circles/
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+    var radius = 70;
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "#00ff00";
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = "red";
+    context.stroke();
+    //Semi-Circle - http://www.html5canvastutorials.com/tutorials/html5-canvas-semicircles/
+    var centerX = 288;
+    var centerY = 75;
+    var radius = 70;
+    var lineWidth = 5;
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, Math.PI, false);
+    context.closePath();
+    context.lineWidth = lineWidth;
+    context.fillStyle = "#000077";
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
+    //Complex clipping - http://www.html5canvastutorials.com/tutorials/html5-canvas-clipping-region-tutorial/
+    var centerX = canvas.width / 4;
+    var centerY = canvas.height / 2;
+    var radius = 75;   
+    var offset = 50;
+    // define circle clipping region
+    // save() allows us to save the canvas context before
+    // defining the clipping region so that we can return
+    // to the default state later on
+    context.save();
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    context.clip();
+    // draw blue circle inside clipping region
+    context.beginPath();
+    context.arc(centerX - offset, centerY - offset, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "#00D2FF"; // light blue
+    context.fill();
+    // draw yellow circle inside clipping region
+    context.beginPath();
+    context.arc(centerX + offset, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "yellow";
+    context.fill();
+    // draw red circle inside clipping region
+    context.beginPath();
+    context.arc(centerX, centerY + offset, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "red";
+    context.fill();
+    // restore() restores the canvas context to its original state
+    // before we defined the clipping region
+    context.restore();
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    context.lineWidth = 3;
+    context.strokeColor = "black";
+    context.stroke();
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="578" height="200">
+        </canvas>
+    </body>
+</html>

@@ -12,7 +12,7 @@ GITCLONE:  <user>@<workserver>:<localpath># git clone ssh://cat@cat9.com:2222/~/
 GITREMOTE: <user>@<workserver>:<localpath># git remote add origin ssh://cat@cat9.com:2222/~/repo/cataprojecttemplate.git
 Servers:
 https://gator1209.hostgator.com:2083/login/ - but only chris 
-http://cattemplates.cat9.com/cataprojecttemplate/test.html
+http://catjstuts.cat9.com/catjscanvas
 Documents:
 DOCINDEX: NONE yet... normally I use sites.google.com/site
 WEBEDIR: http://catmac.local/~cat/cataprojecttemplate/READMECAT.php
@@ -53,16 +53,30 @@ error: Could not remove config section 'remote.private'
 catmac:catjscanvas cat$ git remote add origin git@github.com:christrees/catjscanvas.git
 --NOW edit this README
 --http://catmac.local/~cat/catjscanvas/READMECAT.php
-
---<<<<<<<<<<<<<<<<<<<<
--->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
--->>>>>>>>>>>>>>>>>>>>
-
 catmac:catjscanvas cat$ chmod 666 README
 --click button <SaveCAT> on http://catmac.local/~cat/catjscanvas/READMECAT.php
 catmac:catjscanvas cat$ git add .
 catmac:catjscanvas cat$ git commit -m "First Commit of catjscanvas"
 catmac:catjscanvas cat$ git push origin master
+--Check http://github.com/christrees/catjscanvas
+--LOOKS GOOD
+--NOW start the demos
+--http://www.html5canvastutorials.com/tutorials/html5-canvas-tutorials-introduction/
+--Create the index.html
+--Create demo01.html
+catmac:catjscanvas cat$ cp test.html index.html
+catmac:catjscanvas cat$ cp test.html demo01.html
+catmac:catjscanvas cat$ cp demo01.html demo02.html
+catmac:catjscanvas cat$ cp demo01.html demo03.html
+--SAVE this and commit
+catmac:catjscanvas cat$ git add .
+catmac:catjscanvas cat$ git commit -m "blahblahtemplatestuff"
+catmac:catjscanvas cat$ git push origin master
+
+--<<<<<<<<<<<<<<<<<<<<
+-->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
+-->>>>>>>>>>>>>>>>>>>>
+
 
 ======= END =============
 ------- copy buffer --------------

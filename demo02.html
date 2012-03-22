@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>demo02 Line Joins </title>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+    //Line Joins
+    // miter line joine (left)
+    context.beginPath();
+    context.moveTo(canvas.width / 2 - 50 - 140, canvas.height - 50); // line 1
+    context.lineTo(canvas.width / 2 - 140, 50); // line 1
+    context.lineTo(canvas.width / 2 + 50 - 140, canvas.height - 50); // line 1
+    context.lineWidth = 25;
+    context.lineJoin = "miter";
+    context.stroke();
+ 
+    // round line join (middle)
+    context.beginPath();
+    context.moveTo(canvas.width / 2 - 50, canvas.height - 50); // line 1
+    context.lineTo(canvas.width / 2, 50); // line 1
+    context.lineTo(canvas.width / 2 + 50, canvas.height - 50); // line 1
+    context.lineWidth = 25;
+    context.lineJoin = "round";
+    context.stroke();
+ 
+    // bevel line join (right)
+    context.beginPath();
+    context.moveTo(canvas.width / 2 - 50 + 140, canvas.height - 50); // line 1
+    context.lineTo(canvas.width / 2 + 140, 50); // line 1
+    context.lineTo(canvas.width / 2 + 50 + 140, canvas.height - 50); // line 1
+    context.lineWidth = 25;
+    context.lineJoin = "bevel";
+    context.stroke();
+    
+    //Rounded Corners http://www.html5canvastutorials.com/tutorials/html5-canvas-rounded-corners/
+        var rectWidth = 200;
+    var rectHeight = 100;
+    var rectX = canvas.width / 2 - rectWidth / 2;
+    var rectY = canvas.height / 2 - rectHeight / 2;
+ 
+    var cornerRadius = 50;
+ 
+    context.beginPath();
+    context.moveTo(rectX, rectY);
+    context.lineTo(rectX + rectWidth - cornerRadius, rectY);
+    context.arcTo(rectX + rectWidth, rectY, rectX + rectWidth, 
+        rectY + cornerRadius, cornerRadius);
+    context.lineTo(rectX + rectWidth, rectY + rectHeight);
+    context.strokeStyle = "green";
+    context.lineWidth = 5;
+    context.stroke();
+    
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="578" height="200">
+        </canvas>
+    </body>
+</html>
