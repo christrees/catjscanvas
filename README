@@ -72,7 +72,29 @@ catmac:catjscanvas cat$ cp demo01.html demo03.html
 catmac:catjscanvas cat$ git add .
 catmac:catjscanvas cat$ git commit -m "blahblahtemplatestuff"
 catmac:catjscanvas cat$ git push origin master
-
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 2 - A BUNCH of Demos
+<<<<<<<<<<<<<<<<<
+--Well... I did a BUNCH of demos but not all
+--BUT I'm committing this as I've sort of got something working and I'm breaking it a lot right now
+--I'm working on demo32.html got pan, zoom working attempting to add the markup stuff
+--CRAP... I should commit with the one of the images... so clean that up before the commit
+--Lets commit this
+--SAVE THIS README
+--SAVE this and push to github
+catmac:catjscanvas cat$ git add .
+catmac:catjscanvas cat$ git commit -m "demo32.html pan and zoom working"
+catmac:catjscanvas cat$ git push origin master
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git fetch
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git reset --hard HEAD
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git merge origin/master
+[cat@gator1209 ~/public_html/catjstuts/catjscanvas]$ git checkout remotes/origin/<whatever branch>
+<<<<<<<<<<<<<<<<<
+>>>>>STEP x - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://catmac.local/~cat/catjscanvas/demo32.html
+Browse - http://catjstuts.cat9.com/catjscanvas/demo32.html
+SUCCESS>>
 --<<<<<<<<<<<<<<<<<<<<
 -->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
 -->>>>>>>>>>>>>>>>>>>>

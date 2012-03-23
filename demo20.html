@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Demo20 - Scale stage multi-touch</title>
+    <script src="kinetic-v3.8.4.js"></script>
+    <script>
+        function getDistance(touch1, touch2){
+            var x1 = touch1.clientX;
+            var x2 = touch2.clientX;
+            var y1 = touch1.clientY;
+            var y2 = touch2.clientY;
+            return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+        }
+        window.onload = function(){
+            var stage = new Kinetic.Stage("container", 578, 200);
+            var layer = new Kinetic.Layer();
+            var startDistance = undefined;
+            var startScale = 1;
+            var triangle = new Kinetic.RegularPolygon({
+                x: 190,
+                y: 120,
+                sides: 3,
+                radius: 80,
+                fill: "#00D2FF",
+                stroke: "black",
+                strokeWidth: 4
+            });
+            layer.add(triangle);
+            var circle = new Kinetic.Circle({
+                x: 380,
+                y: stage.height / 2,
+                radius: 70,
+                fill: "red",
+                stroke: "black",
+                strokeWidth: 4
+            });
+            stage.on("touchmove", function(evt){
+                var touch1 = evt.touches[0];
+                var touch2 = evt.touches[1];
+ 
+                if (touch1 && touch2) {
+                    if (startDistance === undefined) {
+                        startDistance = getDistance(touch1, touch2);
+                    }
+                    else {
+                        var dist = getDistance(touch1, touch2);
+                        var scale = (dist / startDistance) * startScale;
+                        stage.setScale(scale);
+ 
+                        // center layer
+                        var x = stage.width * (1 - scale) / 2;
+                        var y = stage.height * (1 - scale) / 2;
+                        layer.setPosition(x, y);
+ 
+                        stage.draw();
+                    }
+                }
+            });
+            stage.on("touchend", function(){
+                startDistance = undefined;
+                startScale = stage.scale.x;
+            });
+            layer.add(circle);
+            stage.add(layer);
+        };
+    </script>
+</head>
+<body onmousedown="return false;">
+    <div id="container">
+    </div>
+</body>

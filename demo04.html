@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>demo04 gradient</title>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+    //Custom Shape - http://www.html5canvastutorials.com/tutorials/html5-canvas-shape-fill/
+    context.beginPath(); // begin custom shape
+    context.moveTo(170, 80);
+    context.bezierCurveTo(130, 100, 130, 150, 230, 150);
+    context.bezierCurveTo(250, 180, 320, 180, 340, 150);
+    context.bezierCurveTo(420, 150, 420, 120, 390, 100);
+    context.bezierCurveTo(430, 40, 370, 30, 340, 50);
+    context.bezierCurveTo(320, 5, 250, 20, 250, 50);
+    context.bezierCurveTo(200, 5, 150, 20, 170, 80);
+    context.closePath(); // complete custom shape
+    context.fillStyle = "#8ED6FF";
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = "#0000ff";
+    context.stroke();
+    // add linear gradient - http://www.html5canvastutorials.com/tutorials/html5-canvas-linear-gradients/
+    var grd = context.createLinearGradient(230, 0, 370, 200);
+    grd.addColorStop(0, "#8ED6FF"); // light blue
+    grd.addColorStop(1, "#004CB3"); // dark blue
+    context.fillStyle = grd;
+    context.fill();
+    // add stroke
+    context.lineWidth = 5;
+    context.strokeStyle = "#0000ff";
+    context.stroke();
+        //Rectangle - http://www.html5canvastutorials.com/tutorials/html5-canvas-rectangles/
+    var topLeftCornerX = 188;
+    var topLeftCornerY = 50;
+    var width = 100;
+    var height = 50;
+    context.beginPath();
+    context.rect(topLeftCornerX, topLeftCornerY, width, height);
+    context.fillStyle = "#000ff0";
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = "black";
+    context.stroke();
+        // create multi-colored radial gradient - http://www.html5canvastutorials.com/tutorials/html5-canvas-radial-gradients/
+    var grd = context.createRadialGradient(238, 50, 10, 338, 50, 200);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(0.17, "orange");
+    grd.addColorStop(0.33, "yellow");
+    grd.addColorStop(0.5, "green");
+    grd.addColorStop(0.666, "blue");
+    grd.addColorStop(1, "violet");
+    context.fillStyle = grd;
+    context.fill();
+    // Canvas Pattern - http://www.html5canvastutorials.com/tutorials/html5-canvas-patterns-tutorial/
+    var imageObj = new Image();
+    imageObj.onload = function(){
+        var pattern = context.createPattern(imageObj, "repeat");
+        context.beginPath();
+        context.rect(20, 20, 150, 100);     
+        context.fillStyle = pattern;
+        context.fill();
+    };
+    imageObj.src = "wood-pattern.png";
+            };
+        </script>
+    </head>
+    <body><canvas id="myCanvas" width="578" height="200"></canvas></body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Demo21 - Scale objects multi-touch</title>
+    <script src="kinetic-v3.8.4.js"></script>
+    <script>
+        function getDistance(touch1, touch2){
+            var x1 = touch1.clientX;
+            var x2 = touch2.clientX;
+            var y1 = touch1.clientY;
+            var y2 = touch2.clientY;
+ 
+            return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+        }
+ 
+        window.onload = function(){
+            var stage = new Kinetic.Stage("container", 578, 200);
+            var layer = new Kinetic.Layer();
+            var targetShape = undefined;
+ 
+            var triangle = new Kinetic.RegularPolygon({
+                x: 190,
+                y: 120,
+                sides: 3,
+                radius: 80,
+                fill: "#00D2FF",
+                stroke: "black",
+                strokeWidth: 4,
+                // custom property
+                startScale: 1
+            });
+ 
+            triangle.on("touchstart", function(){
+                targetShape = this;
+                this.moveToTop();
+            });
+ 
+            layer.add(triangle);
+ 
+            var circle = new Kinetic.Circle({
+                x: 380,
+                y: stage.height / 2,
+                radius: 70,
+                fill: "red",
+                stroke: "black",
+                strokeWidth: 4,
+                // custom property
+                startScale: 1
+            });
+ 
+            circle.on("touchstart", function(){
+                targetShape = this;
+                this.moveToTop();
+            });
+ 
+            stage.on("touchmove", function(evt){
+                var touch1 = evt.touches[0];
+                var touch2 = evt.touches[1];
+ 
+                if (touch1 && touch2) {
+                    if (targetShape) {
+                        if (targetShape.startDistance === undefined) {
+                            targetShape.startDistance = getDistance(touch1, touch2);
+                        }
+                        else {
+                            var dist = getDistance(touch1, touch2);
+                            var scale = (dist / targetShape.startDistance) * targetShape.startScale;
+                            targetShape.setScale(scale);
+                            layer.draw();
+                        }
+                    }
+                }
+            });
+ 
+            stage.on("touchend", function(){
+                if (targetShape) {
+                    targetShape.startDistance = undefined;
+                    targetShape.startScale = targetShape.scale.x;
+                    targetShape = undefined;
+                }
+            });
+ 
+            layer.add(circle);
+            stage.add(layer);
+        };
+    </script>
+</head>
+<body onmousedown="return false;">
+    <div id="container">
+    </div>
+</body>
+</html>

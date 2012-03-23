@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>demo05 images</title>
+        <script>
+            function loadImages(sources, callback){
+    var images = {};
+    var loadedImages = 0;
+    var numImages = 0;
+    // get num of sources
+    for (var src in sources) {
+        numImages++;
+    }
+    for (var src in sources) {
+        images[src] = new Image();
+        images[src].onload = function(){
+            if (++loadedImages >= numImages) {
+                callback(images);
+            }
+        };
+        images[src].src = sources[src];
+    }
+}
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                var context2 = canvas.getContext("2d");
+                var context3 = canvas.getContext("2d");
+                var sources = {
+        darthVader: "darth-vader.jpg",
+        yoda: "yoda.jpg"
+    };
+                //image - http://www.html5canvastutorials.com/tutorials/html5-canvas-images/
+    var destX = 69;
+    var destY = 50;
+    //image size - http://www.html5canvastutorials.com/tutorials/html5-canvas-image-size/
+    var dest2X = 188;
+    var dest2Y = 130;
+    var dest2Width = 200;
+    var dest2Height = 137;
+    //image crop - http://www.html5canvastutorials.com/tutorials/html5-canvas-image-crop/
+        var source3X = 150;
+        var source3Y = 0;
+        var source3Width = 150;
+        var source3Height = 150;
+    var dest3X = 300;
+    var dest3Y = 140;
+    var dest3Width = 150;
+    var dest3Height = 150;
+    //context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+    /* old way before image loader
+    var imageObj = new Image();
+    imageObj.onload = function(){
+        context.drawImage(imageObj, destX, destY);
+        context2.drawImage(imageObj, dest2X, dest2Y, dest2Width, dest2Height);
+        context3.drawImage(imageObj, source3X, source3Y, source3Width, source3Height, dest3X, dest3Y, dest3Width, dest3Height);
+    };
+    imageObj.src = "darth-vader.jpg";
+    */
+       loadImages(sources, function(images){
+        context.drawImage(images.darthVader, destX, destY);
+        context2.drawImage(images.yoda, dest2X, dest2Y, dest2Width, dest2Height);
+        context3.drawImage(images.darthVader, source3X, source3Y, source3Width, source3Height, dest3X, dest3Y, dest3Width, dest3Height);
+    });
+            };
+        </script>
+    </head>
+    <body><canvas id="myCanvas" width="578" height="500"></canvas></body>
+</html>

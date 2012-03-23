@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>demo06 text</title>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                var context2 = canvas.getContext("2d");
+                var context3 = canvas.getContext("2d");
+                var context4 = canvas.getContext("2d");
+                
+                //text - http://www.html5canvastutorials.com/tutorials/html5-canvas-text-font-size/
+    var x = 150;
+    var y = 80;
+    context.font = "40pt Calibri";
+    context.fillStyle = "#0000ff"; // text color
+    context.fillText("Hello World!", x, y);
+    //Stroke - http://www.html5canvastutorials.com/tutorials/html5-canvas-text-stroke/
+    var x2 = 80;
+    var y2 = 140;
+    context2.font = "60pt Calibri";
+    context2.lineWidth = 3;
+    context2.strokeStyle = "red"; // stroke color
+    context2.strokeText("Hello World!", x2, y2);
+    //alignment - http://www.html5canvastutorials.com/tutorials/html5-canvas-text-align/
+    var x3 = canvas.width / 2;
+    var y3 = canvas.height / 2;
+    context3.font = "30pt Calibri";
+    // textAlign aligns text horizontally relative to placement
+    context3.textAlign = "center";
+    //baseline http://www.html5canvastutorials.com/tutorials/html5-canvas-baseline-tutorial/
+    // textBaseline aligns text vertically relative to font style
+    context.textBaseline = "middle";
+    context3.fillStyle = "green";
+    context3.fillText("Hello World!", x3, y3);
+    //metrics - this is new http://www.html5canvastutorials.com/tutorials/html5-canvas-text-metrics/
+    var x4 = canvas.width / 2;
+    var y4 = canvas.height / 2 + 50;
+    var text4 = "MeasureText";
+    context4.font = "30pt Calibri";
+    context4.textAlign = "center";
+    context4.fillStyle = "yellow";
+    context4.fillText(text4, x4, y4);
+    // get text metrics
+    var metrics = context4.measureText(text4);
+    var width = metrics.width;
+    context4.font = "20pt Calibri";
+    context4.textAlign = "center";
+    context4.fillStyle = "#555";
+    context4.fillText("(" + width + "px wide)", x4, y4 + 40);
+    //also a line wrap but too much work... http://www.html5canvastutorials.com/tutorials/html5-canvas-wrap-text-tutorial/
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="578" height="230">
+        </canvas>
+    </body>
+</html>
