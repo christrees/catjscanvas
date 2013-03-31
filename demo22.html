@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Demo22 - Scale and pan stage multi-touch</title>
+     <!-- <script src="kinetic-core.js"></script> -->
+    <!-- <script src="kinetic-v3.8.4.js"></script> -->
+    <script src="kinetic-v3.10.2.js"></script>
+    <script>
+        function getDistance(touch1, touch2) {
+            /* 'use strict'; */
+            var x1 = touch1.clientX,
+                x2 = touch2.clientX,
+                y1 = touch1.clientY,
+                y2 = touch2.clientY;
+            return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+        }
+        /*global window, Kinetic */
+        window.onload = function () {
+            /* 'use strict'; */
+            var stage = new Kinetic.Stage( /* "container", 578, 200 */ {
+                container: "container",
+                width: 578,
+                height: 200 
+                } /* */ );
+            var layer = new Kinetic.Layer();
+            var startDistance = undefined;
+            var startScale = 1;
+            var triangle = new Kinetic.RegularPolygon({
+                x: 190,
+                y: 120,
+                sides: 3,
+                radius: 80,
+                fill: "#00D2FF",
+                stroke: "black",
+                strokeWidth: 4
+            });
+            layer.add(triangle);
+            /* var circle = new Kinetic.Circle({ */
+            var circle = new Kinetic.Ellipse({
+                x: stage.getWidth() / 2,
+                y: stage.getHeight() / 2,
+            /*    x: stage.width / 2,
+                y: stage.height / 2, */
+                radius: 70,
+                fill: "red",
+                stroke: "black",
+                strokeWidth: 4
+            });
+            layer.add(circle);
+            stage.add(layer);
+            stage.on("touchstart", function(evt){
+                alert('hello');
+                var touch1 = evt.touches[0];
+                var touch2 = evt.touches[1];
+                alert('hello');
+                if (touch1 && touch2) {
+                    if (startDistance === undefined) {
+                        startDistance = getDistance(touch1, touch2);
+                    }
+                    else {
+                        var dist = getDistance(touch1, touch2);
+                        var scale = (dist / startDistance) * startScale;
+                        stage.setScale(scale);
+ 
+                        // center layer
+                        var x = stage.getWidth * (1 - scale) / 2;
+                        var y = stage.getHeight * (1 - scale) / 2;
+                        layer.setPosition(x, y);
+ 
+                        stage.draw();
+                    }
+                }
+            });
+            stage.on("touchend", function(){
+                startDistance = undefined;
+                startScale = stage.getScale.x;
+            });
+            stage.on("click", function(){alert('hello Stage');});
+            layer.on("click", function(){alert('hello Layer');});
+            circle.on("click", function(){alert('hello Circle');});
+
+        };
+    </script>
+</head>
+<body onmousedown="return false;" >
+    <div id="container"></div>
+</body>
